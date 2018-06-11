@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.hibernate.type.*;
 
 import com.google.common.collect.ImmutableMap;
@@ -82,13 +82,13 @@ public final class HibernateUtil {
 
     private static void setValue(Query query, String key, Object val) {
         if (val instanceof Collection<?>) {
-            query.setParameterList(key, (Collection<?>) val);
+            query.setParameter(Integer.parseInt(key), (Collection<?>) val);
         } else if (val instanceof Object[] && !BUILT_IN.contains(val.getClass())) {
-            query.setParameterList(key, (Object[]) val);
+            query.setParameter(Integer.parseInt(key), (Object[]) val);
         } else if (val instanceof Number && TYPES.containsKey(val.getClass())) {
-            query.setParameter(key, val, getType(val.getClass()));
+            query.setParameter(Integer.parseInt(key), val, getType(val.getClass()));
         } else {
-            query.setParameter(key, val);
+            query.setParameter(Integer.parseInt(key), val);
         }
     }
 
