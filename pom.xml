@@ -308,9 +308,6 @@
               <goal>publish</goal>
             </goals>
             <configuration>
-              <deployProperties>
-                <gradle>awesome</gradle>
-              </deployProperties>
               <artifactory>
                 <includeEnvVars>true</includeEnvVars>
                 <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*</envVarsExcludePatterns>
@@ -318,15 +315,15 @@
               </artifactory>
               <publisher>
                 <contextUrl>http://192.168.10.157:8081/artifactory</contextUrl>
-                <username>${username}</username>
-                <password>${password}</password>
+                <username>${artifactory.username}</username>
+                <password>${artifactory.password}</password>
                 <excludePatterns>*-tests.jar</excludePatterns>
                 <repoKey>libs-releases-local</repoKey>
-                <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+                <snapshotRepoKey>libs-snapshots-local</snapshotRepoKey>
               </publisher>
               <buildInfo>
-                <buildName>plugin-demo</buildName>
-                <buildNumber>${buildnumber}</buildNumber>
+                <buildName>unimarket-querydsl</buildName>
+                <buildNumber>${artifactory.buildnumber}</buildNumber>
                 <buildUrl>http://build-url.org</buildUrl>
               </buildInfo>
               <licenses>

@@ -11,5 +11,5 @@ After Querydsl upgrades to support hibernate 5.3, we could verify Unimarket app 
 
 **How to deploy it to JFrog Artifactory**
 
-mvn deploy -Dusername={username} -Dpassword={password} -Dbuildnumber={buildnumber}
+mvn deploy -Dartifactory.username={username} -Dartifactory.password={password} -Dartifactory.buildnumber={buildnumber}
 
